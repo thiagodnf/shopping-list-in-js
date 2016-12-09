@@ -1,0 +1,82 @@
+<div class="pages" id="page-pantry">
+
+    <div class="toolbar ">
+        <div class="row">
+            <div class="col-xs-6">
+                <p class="total" id="product-total"></p>
+            </div>
+            <div class=" col-xs-6">
+                <button class="btn pull-right btn-default" id="new-product">New Product</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panels">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Uncategorized</div>
+            <div class="list-group" id="uncategorized">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="form-product">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Product</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group hide">
+                        <label for="product-id">Id</label>
+                        <input type="text" class="form-control" autocomplete="off" data-validation="required" id="product-id">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-name">Name</label>
+                        <input type="text" class="form-control" autocomplete="off" data-validation="required" id="product-name">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="product-amount">Amount</label>
+                                <input type="number" value="1" class="form-control" autocomplete="off" data-validation="required" id="product-amount">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="product-unit">Unit</label>
+                                <select class="form-control select" id="product-unit" data-validation="required">
+                                    <option value="unit">Unit</options>
+                                    <option value="box">Box</options>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="product-value">Value</label>
+                                <input type="text" value="0.0" class="form-control" autocomplete="off" data-validation="required" id="product-value">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">Category</label>
+                        <select class="form-control select" id="product-category" data-validation="required"></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btn-save-product">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf8">
+    PantryModule.init();
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+        <meta name="description" content="Generate a gnuplot script by containing a bubble chart">
+	  	<meta name="author" content="Thiago Nascimento">
+		<meta name="keywords" content="bubble chart, gnuplot, bubble chart for gnuplot">
+        <meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="Bubble">
+		<meta name="robots" content="index, follow">
+
+        <title>Shopping List</title>
+
+        <!-- Material Design fonts -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/snackbar.min.css">
+        <link rel="stylesheet" href="css/material.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
+    <!--<link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+        <link rel="stylesheet" href="css/ripples.min.css">-->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top" id="custom-bootstrap-menu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#items">Shopping List</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+        			<ul class="nav navbar-nav">
+                        <li class="active"><a class="menu-item" href="#items" >Items</a></li>
+        				<li><a class="menu-item" href="#pantry">Pantry</a></li>
+                        <li><a class="menu-item" href="#categories">Categories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ActionBar -->
+        <nav class="navbar navbar-default navbar-fixed-top" id="actionbar"  style="display:none" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="btn-group pull-left" role="group" aria-label="...">
+                            <a href="#" class="btn" id="actionbar-cancel"><i class="glyphicon glyphicon-arrow-left"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="btn-group pull-right" role="group" aria-label="...">
+                            <a href="#" class="btn" id="actionbar-done"><i class="glyphicon glyphicon-ok"></i></a>
+                            <a href="#" class="btn" id="actionbar-add"><i class="glyphicon glyphicon-plus"></i></a>
+                            <a href="#" class="btn" id="actionbar-edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#" class="btn" id="actionbar-remove"><i class="glyphicon glyphicon-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div id="content" class="container">
+
+        </div>
+
+        <!-- Vendors -->
+        <script type="text/javascript" charset="utf8" src="js/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/vendor/snackbar.min.js"></script>
+
+        <!-- Utils -->
+        <script type="text/javascript" charset="utf8" src="js/app/utils/ArrayUtils.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/utils/ColorUtils.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/utils/UUIDUtils.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/utils/DatabaseUtils.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/utils/SnackbarUtils.js"></script>
+
+        <script type="text/javascript" charset="utf8" src="js/app/components/ActionBar.js"></script>
+
+        <!-- Modules -->
+        <script type="text/javascript" charset="utf8" src="js/app/modules/ItemsModule.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/modules/PantryModule.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/modules/CategoriesModule.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/app/modules/LoadModule.js"></script>
+        <script type="text/javascript" charset="utf8" src="js/script.js"></script>
+    </body>
+</html>
