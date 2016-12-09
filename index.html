@@ -48,30 +48,25 @@
             </div>
         </nav>
 
-        <!-- ActionBar -->
-        <nav class="navbar navbar-default navbar-fixed-top" id="actionbar"  style="display:none" >
+        <div id="actionbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-4">
-                        <div class="btn-group pull-left" role="group" aria-label="...">
-                            <a href="#" class="btn" id="actionbar-cancel"><i class="glyphicon glyphicon-arrow-left"></i></a>
-                        </div>
+                    <div class="col-xs-2">
+                        <button type="button" id="actionbar-cancel" class="btn btn-transparent pull-left"><i class="glyphicon glyphicon-arrow-left"></i><span class="actionbar-btn-text">Back</span></button>
                     </div>
-                    <div class="col-xs-8">
-                        <div class="btn-group pull-right" role="group" aria-label="...">
-                            <a href="#" class="btn" id="actionbar-done"><i class="glyphicon glyphicon-ok"></i></a>
-                            <a href="#" class="btn" id="actionbar-add"><i class="glyphicon glyphicon-plus"></i></a>
-                            <a href="#" class="btn" id="actionbar-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#" class="btn" id="actionbar-remove"><i class="glyphicon glyphicon-trash"></i></a>
-                        </div>
+                    <div class="col-xs-10 actionbar-right-buttons">
+                        <button type="button" id="actionbar-done" class="btn btn-transparent pull-right"><i class="glyphicon glyphicon-ok"></i><span class="actionbar-btn-text">Done</span></button>
+                        <button type="button" id="actionbar-add" class="btn btn-transparent pull-right"><i class="glyphicon glyphicon-plus"></i><span class="actionbar-btn-text">Add</span></button>
+                        <button type="button" id="actionbar-edit" class="btn btn-transparent pull-right"><i class="glyphicon glyphicon-pencil"></i><span class="actionbar-btn-text">Edit</span></button>
+                        <button type="button" id="actionbar-remove" class="btn btn-transparent pull-right"><i class="glyphicon glyphicon-trash"></i><span class="actionbar-btn-text">Remove</span></button>
                     </div>
                 </div>
             </div>
-        </nav>
-
-        <div id="content" class="container">
-
         </div>
+
+        <div id="actionbar"></div>
+
+        <div id="content" class="container"></div>
 
         <!-- Vendors -->
         <script type="text/javascript" charset="utf8" src="js/jquery.min.js"></script>

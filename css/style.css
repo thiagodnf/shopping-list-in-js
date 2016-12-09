@@ -10,28 +10,30 @@ body{
 	opacity: 1;
 }
 
-#actionbar .navbar-collapses.collapses{
+#actionbar .navbar-collapse.collapse{
   display: block !important;
 }
 
-#actionbar .navbar-navs>li, .navbar-navs{
+#actionbar .navbar-nav>li, .navbar-nav{
   float: left !important;
 }
 
-#actionbar .navbar-navs.navbar-rights:last-child{
+#actionbar .navbar-nav.navbar-right:last-child{
   margin-right: -15px !important;
 }
 
-#actionbar .navbar-rights{
+#actionbar .navbar-right{
   float: right !important;
 }
 
-#actionbar a{
-        margin-top: 8px;
+.btn-transparent {
+  background-color: transparent;
+  border-color: #ccc;
 }
 
-
-
+.navbar-form{
+    padding-left: 0px;
+}
 
 .toolbar{
 
@@ -44,6 +46,27 @@ body{
 }
 
 
+#actionbar{
+    top: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    display: none;
+    z-index: 1031;
+    width: 100%;
+    padding-top: 8px;
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    min-height: 50px;
+}
+
+.actionbar-right-buttons button{
+    margin-left: 10px;
+}
+
+.actionbar-btn-text{
+    padding-left: 5px;
+}
 
 .pages{
     padding-top: 15px;
