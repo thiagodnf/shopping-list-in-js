@@ -21,5 +21,10 @@ This application is a useful and simple shopping list.
 ## Screenshots (iPad)
 <img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-ipad.png" alt="Drawing" height="300"/>
 
+## Contact
+
+If you encounter any problems, please use the [GitHub Issue Tracker](https://github.com/thiagodnf/shopping-list/issues) .
+
+If you like this project, let me know.
 
 
