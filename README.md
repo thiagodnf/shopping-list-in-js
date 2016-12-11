@@ -3,8 +3,9 @@
 This application is a useful and simple shopping list.
 
 ## Features
+- HTML5 Support - HTML5 is the latest evolution of the standard that defines HTML
 - Plataform-independent - Designed to run on the World Wide Web
-- Organize with Categories - Separate the products into categories.
+- Organize with Categories - Separate the products into categories
 - Product Management - Define price, quantity and units for the products
 - Offline Support - Create and manage your shopping list with no internet
 
