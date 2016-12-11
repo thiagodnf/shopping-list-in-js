@@ -47,6 +47,7 @@ String.toLocaleString({
         "Reset Settings": "Reset Settings",
         "Are you sure?": "Are you sure?",
         "Warning! This cannot be undone!": "Warning! This cannot be undone!",
+        "Currency Symbol": "Currency Symbol",
 	},
 	"pt-BR": {
         "Pending": "Pendentes",
@@ -96,5 +97,6 @@ String.toLocaleString({
         "Reset Settings": "Redefinir Configurações",
         "Are you sure?": "Você está certo disso?",
         "Warning! This cannot be undone!": "Atenção! Isto não pode ser desfeito!",
+        "Currency Symbol": "Moeda",
 	}
 });

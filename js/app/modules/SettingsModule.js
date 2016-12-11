@@ -3,18 +3,16 @@ var SettingsModule  = {
         var that = this;
 
         $("#settings-language").val(DatabaseUtils.get("language") || "en-US");
+        $("#settings-currency-symbol").val(DatabaseUtils.get("currency-symbol") || "$");
 
         var lang = (DatabaseUtils.get("language") || "en-US").substring(0, 2);
 
         $.validate({ form:"#form-settings", onSuccess: function($form) {
 
             DatabaseUtils.set("language", $("#settings-language").val());
-
-            //that.reload();
+            DatabaseUtils.set("currency-symbol", $("#settings-currency-symbol").val());
 
             location.reload();
-
-            SnackbarUtils.updated("Saved");
 
             return false;
         }});
@@ -114,6 +112,7 @@ var SettingsModule  = {
         $("a[href='#settings-tab-advanced']").text("Advanced".toLocaleString());
 
         $("label[for='settings-language']").text("Language".toLocaleString());
+        $("label[for='settings-currency-symbol']").text("Currency Symbol".toLocaleString());
         $("p[for='settings-data']").text("Data".toLocaleString());
         $("p[for='settings-reset']").text("Reset Settings".toLocaleString());
         $("p[for='settings-reset-warning']").text("Warning! This cannot be undone!".toLocaleString());

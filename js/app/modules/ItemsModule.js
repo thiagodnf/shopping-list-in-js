@@ -15,7 +15,7 @@ var ItemsModule = {
         ListView.callbacks = {};
 
         ListView.on('row.content.right', function(item){
-            return '<span class="text-success pull-right">$'+(item.amount*item.value)+'</span>';
+            return '<span class="text-success pull-right">'+(DatabaseUtils.get("currency-symbol") || "$")+" "+(item.amount*item.value)+'</span>';
         });
 
         ListView.on('row.content.left', function(item){
@@ -38,7 +38,7 @@ var ItemsModule = {
         });
 
         ToolBar.on('content.right', function(){
-            return '<p class="text-success pull-right">$'+totalValue;
+            return '<p class="text-success pull-right">'+(DatabaseUtils.get("currency-symbol") || "$")+" "+totalValue;
         });
 
         ToolBar.init();

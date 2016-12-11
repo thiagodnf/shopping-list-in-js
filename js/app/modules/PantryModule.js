@@ -70,7 +70,7 @@ var PantryModule = {
         ListView.callbacks = {};
 
         ListView.on('row.content.right', function(item){
-            return '<span class="text-success pull-right">$'+(item.amount*item.value)+'</span>';
+            return '<span class="text-success pull-right">'+(DatabaseUtils.get("currency-symbol") || "$")+" "+(item.amount*item.value)+'</span>';
         });
 
         ListView.on('row.content.left', function(item){
