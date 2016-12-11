@@ -127,5 +127,6 @@ var SettingsModule  = {
 
         $("option[value='en-US']").text("English".toLocaleString());
         $("option[value='pt-BR']").text("Portuguese".toLocaleString());
+        $("option[value='pt-ES']").text("Spanish".toLocaleString());
     }
 }

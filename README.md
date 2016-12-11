@@ -9,10 +9,12 @@ This application is a useful and simple shopping list.
 - Product Management - Define price, quantity and units for the products
 - Offline Support - Create and manage your shopping list with no internet
 - Import/Export your data in a json file
+- Multi-Languages
 
 ## Supported Languages
 - English
 - Portuguese
+- Spanish
 
 ## Screenshots (Desktop)
 <img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-desktop.png" alt="Drawing" height="300"/>
@@ -28,5 +30,3 @@ This application is a useful and simple shopping list.
 If you encounter any problems, please use the [GitHub Issue Tracker](https://github.com/thiagodnf/shopping-list/issues) .
 
 If you like this project, let me know.
-
-
