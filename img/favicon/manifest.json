@@ -1,5 +1,13 @@
 {
- "name": "App",
+ "name": "Shopping List",
+ "short_name": "Shopping List",
+ "default_locale": "en",
+ "version": "1.0.0",
+ "author": "Thiago Nascimento",
+ "offline_enabled": true,
+ "homepage_url": "https://github.com/thiagodnf/shopping-list",
+ "description": "This application is a useful and simple shopping list",
+ "display": "standalone",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",

@@ -1,0 +1,31 @@
+<div class="pages" id="page-settings">
+
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#settings-tab-general" aria-controls="home" role="tab" data-toggle="tab">General</a></li>
+    </ul>
+
+    <form id="form-settings">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="general">
+                <br>
+                <div class="form-group">
+                    <label for="settings-language">Language</label>
+                    <select class="form-control select" id="settings-language" data-validation="required">
+                        <option value="en-US">English</option>
+                        <option value="pt-BR">Portuguese</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn-settings-save">Save</button>
+    </form>
+</div>
+
+</div>
+
+<script type="text/javascript" charset="utf8">
+    SettingsModule.init();
+</script>

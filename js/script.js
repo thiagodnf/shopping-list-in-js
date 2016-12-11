@@ -1,26 +1,3 @@
-function unselectedAll(name){
-    $("input:checkbox[name="+name+"]").each(function(){
-        $(this).prop('checked', false);
-    });
-}
-function getSelectedItems(name){
-    var selectedItems = [];
-
-    $("input:checkbox[name="+name+"]:checked").each(function(){
-        selectedItems.push($(this).attr("id"));
-    });
-
-    return selectedItems;
-}
-
-function thereAreSomeItemsSelected(name){
-    return getSelectedItems(name).length > 0;
-}
-
-function isMenuCollapsed(){
-    return $(window).width() <= 752;
-}
-
 function defineAsPending(ids, state){
     SnackbarUtils.savedState = {
         database: "products",
@@ -29,7 +6,7 @@ function defineAsPending(ids, state){
 
     // Load entries for deleting
     $.each(ids, function(index, id){
-        var entry = DatabaseUtils.getById("products", id);
+        var entry = DatabaseUtils.findOne("products", {id: id});
 
         if(entry){
             entry.pending = state;
@@ -40,101 +17,39 @@ function defineAsPending(ids, state){
     LoadModule.getCurrentModule().reload();
 
     SnackbarUtils.add();
-
-    ActionBar.showActionBar(false);
 }
 
 $(function(){
 
-    console.log("Loading app...");
+    document.addEventListener('contextmenu', function(evento){
+        event.preventDefault()
+    });
+
+    String.locale = DatabaseUtils.get("language");
+
+    if( ! String.locale){
+        String.locale = "en-US";
+    }
+
+    $(".navbar-brand").text("Shopping List".toLocaleString());
+    document.title  = "Shopping List".toLocaleString();
 
     ActionBar.init();
 
+    NavBar.init();
+
+    ListView.init();
+
+    LoadModule.init();
+
     LoadModule.load(LoadModule.getModuleNameByURL());
 
-    $(".menu-item").click(function(event){
-        event.preventDefault();
-
-        LoadModule.load($(this).attr("href"));
-	});
-
-	$('.nav .menu-item').on('click', function(event){
-        event.preventDefault();
-
-        if(isMenuCollapsed()){
-    	    $('.btn-navbar').click(); //bootstrap 2.x
-    	    $('.navbar-toggle').click() //bootstrap 3.x by Richard
-        }
-	});
-
-    $(document).on('click','.list-group-item', function (event) {
-
-        event.preventDefault();
-
-        $(this).find("input").prop('checked', ! $(this).find("input").prop('checked'));
-
-        if(thereAreSomeItemsSelected("sl-item")){
-            ActionBar.showActionBar(true)
-        }else{
-            ActionBar.showActionBar(false)
-        }
-
-        var actions = LoadModule.getCurrentModule().actions;
-
-        ActionBar.showAddButton(actions.indexOf("add") > -1);
-        ActionBar.showRemoveButton(actions.indexOf("remove") > -1);
-        ActionBar.showDoneButton(actions.indexOf("done") > -1);
-        ActionBar.showEditButton(actions.indexOf("edit") > -1);
-
-        if(getSelectedItems("sl-item").length != 1){
-            ActionBar.showEditButton(false);
-        }
+    ActionBar.on('back', function(){
+        ListView.unselectedAll("sl-item");
     });
 
-    $("#actionbar-add").click(function(event){
-
-        event.preventDefault();
-
-        var ids = getSelectedItems("sl-item");
-
-        defineAsPending(ids, true);
-
-        return false;
-    });
-
-    $("#actionbar-done").click(function(event){
-
-        event.preventDefault();
-
-        var ids = getSelectedItems("sl-item");
-
-        defineAsPending(ids, false);
-
-        return false;
-    });
-
-    $("#actionbar-edit").click(function(event){
-
-        event.preventDefault();
-
-        var selectedItems = getSelectedItems("sl-item");
-
-        if(selectedItems.length > 1){
-            alert("You can edit only a registry");
-        }else{
-            LoadModule.getCurrentModule().edit(selectedItems[0]);
-        }
-
-        return false;
-    });
-
-    $("#actionbar-remove").click(function(event){
-
-        event.preventDefault();
-
+    ActionBar.on('remove', function(ids){
         var database = LoadModule.getCurrentModule().database;
-
-        var ids = getSelectedItems("sl-item");
 
         SnackbarUtils.savedState = {
             database: database,
@@ -143,10 +58,14 @@ $(function(){
 
         // Load entries for deleting
         $.each(ids, function(index, id){
-            var entry = DatabaseUtils.getById(database, id);
+            var entry = DatabaseUtils.findOne(database, {id: id});
 
             if(entry){
                 DatabaseUtils.remove(database, entry);
+
+                if(database == "categories"){
+                    LoadModule.getCurrentModule().removeProducts(id);
+                }
             }
         });
 
@@ -155,13 +74,31 @@ $(function(){
         SnackbarUtils.remove();
 
         ActionBar.showActionBar(false);
-
-        return false;
     });
+
+    ActionBar.on('add', function(ids){
+        defineAsPending(ids, true);
+    });
+
+    ActionBar.on('done', function(ids){
+        defineAsPending(ids, false);
+    });
+
+    ActionBar.on('edit', function(ids){
+        if(ids.length > 1){
+            alert("You can edit only a registry");
+        }else{
+            LoadModule.getCurrentModule().edit(ids[0]);
+        }
+    });
+
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
 
     $(document).on('click',"#snackbar-btn-undo", function(){
         DatabaseUtils.setString(SnackbarUtils.savedState.database, SnackbarUtils.savedState.value);
 
         LoadModule.getCurrentModule().reload();
-    })
+    });
 });

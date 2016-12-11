@@ -1,21 +1,29 @@
 var LoadModule = {
     urls: {
-        "#items": "pages/items.html",
+        "#pending": "pages/items.html",
         "#pantry": "pages/pantry.html",
-        "#categories": "pages/categories.html"
+        "#categories": "pages/categories.html",
+        "#settings": "pages/settings.html"
     },
     names: {
-        "#items": "Items",
+        "#pending": "Pending",
         "#pantry": "Pantry",
-        "#categories": "Categories"
+        "#categories": "Categories",
+        "#settings": "Settings",
     },
     modules: {
-        "#items": ItemsModule,
+        "#pending": ItemsModule,
         "#pantry": PantryModule,
-        "#categories": CategoriesModule
+        "#categories": CategoriesModule,
+        "#settings": SettingsModule
+    },
+    init: function(){
+        for(var prop in this.names){
+            $(".menu-item[href='" + prop + "']").text(this.names[prop].toLocaleString());
+        };
     },
     getDefaultModule: function(){
-        return "#items";
+        return "#pending";
     },
     load: function(module){
 
@@ -35,7 +43,7 @@ var LoadModule = {
     		$(this).parent().addClass("active");
     	});
 
-        if($(window).width() <= 752){
+        if(NavBar.isMenuCollapsed()){
             $(".navbar-brand").text(this.names[module]);
         }
 

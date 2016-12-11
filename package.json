@@ -1,7 +1,7 @@
 {
-	"name": "bubble-chart-for-gnuplot",
+	"name": "shopping-list",
 	"version": "1.0.0",
-	"description": "This tool generates a script that plots a bubble chart in the gnuplot tool",
+	"description": "This application is a useful and simple shopping list",
 	"main": "app.js",
 	"scripts": {
 		"start": "node app.js",
@@ -16,10 +16,12 @@
 	],
 	"author": "Thiago Nascimento",
 	"license": "MIT",
-	"homepage": "https://github.com/thiagodnf/bubble-chart-for-gnuplot",
+	"homepage": "https://github.com/thiagodnf/shopping-list",
 	"dependencies": {
 		"serve-static": "",
 		"connect": "",
-		"network":""
+		"network":"",
+        "appcache-manifest":"",
+        "recursive-readdir":""
   	}
 }

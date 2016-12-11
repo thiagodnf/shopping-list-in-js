@@ -7,111 +7,119 @@ var PantryModule = {
         "remove"
     ],
     init: function(){
+        var that = this;
+
         $.validate({ form:"#form-product", onSuccess: function($form) {
             // Hide the modal once the information are corrected
              $("#modal-product").modal("hide");
 
-             var product = {
-                 id: $("#product-id").val(),
-                 name: $("#product-name").val(),
-                 category: $("#product-category").val(),
-                 pending: "0"
-             };
+            var product = {
+                id: $("#product-id").val(),
+                name: $("#product-name").val(),
+                categoryId: $("#product-category").val(),
+                amount: $("#product-amount").val().replace(',', '.'),
+                unit: $("#product-unit").val(),
+                value: $("#product-value").val().replace(',', '.'),
+                pending: "0"
+            };
 
-             DatabaseUtils.saveOrUpdate("products", product);
+            DatabaseUtils.saveOrUpdate("products", product);
 
-             ActionBar.showActionBar(false);
+            ActionBar.showActionBar(false);
 
-             PantryModule.reload();
+            that.reload();
 
-             return false;
+            SnackbarUtils.updated();
+
+            return false;
         }});
-
-        $("#new-product").click(this.open);
 
         this.reload();
     },
-    open: function(){
-        $("#product-id").val(UUIDUtils.generate());
-        $("#product-name").val("");
+    open: function(product){
 
         var categories = DatabaseUtils.getAll("categories");
 
-        $("#product-category").html("");
+        $("#product-category").html('<option value="-1">'+"Uncategorized".toLocaleString()+'</option>');
 
-        $("#product-category").append('<option value="-1">Uncategorized</option>');
-
-        $.each(categories, function(index, value){
-            $("#product-category").append('<option value="'+value.id+'">'+value.name+'</option>')
+        $.each(categories, function(index, category){
+            $("#product-category").append('<option value="'+category.id+'">'+category.name+'</option>')
         });
+
+        $("#product-id").val(product? product.id : UUIDUtils.generate());
+        $("#product-name").val(product? product.name: "");
+        $("#product-amount").val(product? product.amount: "1");
+        $("#product-value").val(product? product.value: "0.0");
+        $("#product-unit").val(product? product.unit: "unit");
+        $("#product-category").val(product? product.categoryId: "-1");
 
         $("#modal-product").modal("show");
     },
     edit: function(id){
-
-        var product = DatabaseUtils.getById("products", id);
-
-        if( ! product){
-            return;
-        }
-
-        var categories = DatabaseUtils.getAll("categories");
-
-        $("#product-category").html("");
-
-        $("#product-category").append('<option value="-1">Uncategorized</option>');
-
-        $.each(categories, function(index, value){
-            $("#product-category").append('<option value="'+value.id+'">'+value.name+'</option>')
-        });
-
-        $("#product-id").val(product.id);
-        $("#product-name").val(product.name);
-        $("#product-category").val(product.category);
-
-        $("#modal-product").modal("show");
+        this.open(DatabaseUtils.findOne("products", {id:id}));
     },
     reload: function(){
 
-        var categories = DatabaseUtils.getAll("categories");
-        var colors = ColorUtils.getColors();
-
-        $(".panels").html("");
-
-        $(".panels").append('<div class="panel panel-default"><div class="panel-heading">Uncategorized</div><div class="list-group" id="cat--1"></div></div>');
-
-        $.each(categories, function(index, value){
-            var color = ArrayUtils.getById(colors, value.color);
-
-            $(".panels").append('<div class="panel panel-default"><div style="background-color: '+color.background+'" class="panel-heading">'+value.name+'</div><div class="list-group" id="cat-'+value.id+'"></div></div>');
-        });
+        var that = this;
 
         var products = DatabaseUtils.getAll("products");
+        var categories = DatabaseUtils.getAll("categories");
 
+        var numberOfItems = 0;
 
-        // Clear all before addding new items
-        $("#list-group-products").html("");
+        ListView.callbacks = {};
 
-        var total = 0;
-
-        $.each(products, function(index, value){
-            var cat = "";
-
-            if(value.pending == 1){
-                return;
-            }
-
-            if(ArrayUtils.getPositionById(categories, value.category) == -1){
-                cat = -1;
-            }else{
-                cat = value.category;
-            }
-
-            $("#cat-"+cat).append('<a href="#" class="list-group-item"> <input type="checkbox" name="sl-item" id="'+value.id+'">&nbsp '+value.name+'<button style="background-color: '+value.color+'" class="btn btn-xs pull-right">&nbsp&nbsp&nbsp</button></a>')
-
-            total++;
+        ListView.on('row.content.right', function(item){
+            return '<span class="text-success pull-right">$'+(item.amount*item.value)+'</span>';
         });
 
-        $("#product-total").html('<strong>'+total+'</strong> products');
+        ListView.on('row.content.left', function(item){
+            return item.name + " ("+item.amount+" "+item.unit.capitalize().toLocaleString()+")";
+        });
+
+        ListView.on('row.isValid', function(item){
+            return item.pending == 0;
+        });
+
+        ListView.on('row.shown', function(item){
+            numberOfItems++;
+        });
+
+        ListView.reload(categories, products);
+
+        ToolBar.on('content.left', function(){
+            return '<p><strong>'+numberOfItems+'</strong> '+"products".toLocaleString()+'</p>';
+        });
+
+        ToolBar.on('content.right', function(){
+            return '<button class="btn pull-right btn-default" id="toolbar-btn-new">New Product</button>';
+        });
+
+        ToolBar.on('btn.new.onclick', function(){
+            that.open();
+        });
+
+        ToolBar.init();
+
+        $("#btn-save-product").text("Save".toLocaleString());
+        $("#btn-cancel").text("Cancel".toLocaleString());
+        $("#toolbar-btn-new").text("New Product".toLocaleString());
+
+        $("label[for='product-name']").text("Name".toLocaleString());
+        $("label[for='product-amount']").text("Amount".toLocaleString());
+        $("label[for='product-unit']").text("Unit".toLocaleString());
+        $("label[for='product-value']").text("Value".toLocaleString());
+        $("label[for='product-category']").text("Category".toLocaleString());
+
+        $("#modal-product .modal-title").text("Produto".toLocaleString());
+
+        $("option[value='unit']").text("Unit".toLocaleString());
+        $("option[value='box']").text("Box".toLocaleString());
+        $("option[value='piece']").text("Piece".toLocaleString());
+        $("option[value='package']").text("Package".toLocaleString());
+        $("option[value='bottle']").text("Bottle".toLocaleString());
+        $("option[value='sack']").text("Sack".toLocaleString());
+        $("option[value='dozen']").text("Dozen".toLocaleString());
+        $("option[value='liter']").text("Liter".toLocaleString());
     }
 }

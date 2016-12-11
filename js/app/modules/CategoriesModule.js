@@ -6,7 +6,12 @@ var CategoriesModule = {
         "remove"
     ],
     init: function(){
-        $.validate({ form:"#form-category", onSuccess: function($form) {
+        var that = this;
+
+        var lang = (DatabaseUtils.get("language") || "en-US").substring(0, 2);;
+
+        $.validate({ form:"#form-category",  lang : lang, onSuccess: function($form) {
+
             // Hide the modal once the information are corrected
              $("#modal-category").modal("hide");
 
@@ -22,6 +27,8 @@ var CategoriesModule = {
 
              CategoriesModule.reload();
 
+             SnackbarUtils.updated();
+
              return false;
         }});
 
@@ -32,52 +39,79 @@ var CategoriesModule = {
             var str = "";
 
             str += '<label style="background-color: '+value.background+'" class="btn btn-sm">';
-			str += '<input type="radio" name="colorpicker" value="'+value.id+'" " autocomplete="off">';
+			str += '<input type="radio" name="colorpicker" value="'+value.background+'" " autocomplete="off">';
 			str += '<span class="glyphicon glyphicon-ok"></span>';
 			str += '</label>';
 
             $("#category-color-options").append(str);
         });
 
-        $("#new-category").click(this.open);
-
         this.reload();
     },
-    open: function(){
-        $("#category-id").val(UUIDUtils.generate());
-        $("#category-name").val("");
-        $('input:radio[name=colorpicker][value=0]').click();
+    open: function(category){
+        $("#category-id").val(category? category.id: UUIDUtils.generate());
+        $("#category-name").val(category? category.name: "");
+        $('input:radio[name=colorpicker][value="'+(category? category.color: "#7cb5ec") +'"]').click();
 
         $("#modal-category").modal("show");
     },
     edit: function(id){
+        this.open(DatabaseUtils.findOne("categories", {id:id}));
+    },
+    removeProducts: function(id){
 
-        var category = DatabaseUtils.getById("categories", id);
+        var products = DatabaseUtils.find("products",{categoryId: id});
 
-        if( ! category){
-            return;
-        }
-
-        $("#category-id").val(category.id);
-        $("#category-name").val(category.name);
-        $('input:radio[name=colorpicker][value='+category.color+']').click();
-
-        $("#modal-category").modal("show");
+        $.each(products, function(index, product){
+            product.categoryId = -1;
+            DatabaseUtils.update("products", product);
+        });
     },
     reload: function(){
 
+        var that = this;
+
         var categories = DatabaseUtils.getAll("categories");
+        var numberOfItems = 0.0;
 
-        $("#category-total").html('<strong>'+categories.length+'</strong> categories');
+        ListView.callbacks = {};
 
-        // Clear all before addding new items
-        $("#list-group-categories").html("");
-
-        var colors = ColorUtils.getColors();
-
-        $.each(categories, function(index, value){
-            var color = ArrayUtils.getById(colors, value.color);
-            $("#list-group-categories").append('<a href="#" class="list-group-item"> <input type="checkbox" name="sl-item" id="'+value.id+'">&nbsp '+value.name+'<button style="background-color: '+color.background+'" class="btn btn-xs pull-right">&nbsp&nbsp&nbsp</button></a>')
+        ListView.on('row.content.right', function(item){
+            return '<button style="background-color: '+item.color+'" class="btn btn-xs pull-right">&nbsp&nbsp&nbsp</button>';
         });
+
+        ListView.on('row.isValid', function(item){
+            return true;
+        });
+
+        ListView.on('row.shown', function(item){
+            numberOfItems++;
+        });
+
+        ListView.reload([], categories, "Name".toLocaleString());
+
+        ToolBar.on('content.left', function(){
+            return '<p><strong>'+numberOfItems+'</strong> '+"categories".toLocaleString()+'</p>';
+        });
+
+        ToolBar.on('content.right', function(){
+            return '<button class="btn pull-right btn-default" id="toolbar-btn-new">New Category</button>';
+        });
+
+        ToolBar.on('btn.new.onclick', function(){
+            that.open();
+        });
+
+        ToolBar.init();
+
+        $("#btn-save-category").text("Save".toLocaleString());
+        $("#btn-cancel").text("Cancel".toLocaleString());
+        $("#toolbar-btn-new").text("New Category".toLocaleString());
+
+        $("label[for='category-name']").text("Name".toLocaleString());
+        $("label[for='category-color']").text("Color".toLocaleString());
+
+        $("#modal-category .modal-title").text("Category".toLocaleString());
+
     }
 }

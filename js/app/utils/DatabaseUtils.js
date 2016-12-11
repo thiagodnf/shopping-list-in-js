@@ -1,6 +1,6 @@
 var DatabaseUtils = {
     getAll: function(table){
-        var str = localStorage.getItem(table);
+        var str = this.getString(table);
 
         if( ! str){
             return [];
@@ -8,32 +8,14 @@ var DatabaseUtils = {
 
         return JSON.parse(str);
     },
-    removeById: function(table, id){
-
-        if( ! this.contains(table, id)){
-            return;
-        }
-
-        var registries = this.getAll(table);
-
-        ArrayUtils.removeById(registries, id);
-
-        localStorage.setItem(table, JSON.stringify(registries));
+    find: function(table, where){
+        return where? ArrayUtils.find(this.getAll(table), where): this.getAll(table);
     },
-    getPositionById: function(table, id){
-        return ArrayUtils.getPositionById(this.getAll(table), id);
+    findOne: function(table, where){
+        return this.find(table, where)[0];
     },
-    getById: function(table, id){
-        var pos = this.getPositionById(table, id);
-
-        if(pos == -1){
-            return undefined;
-        }
-
-        return this.getAll(table)[pos];
-    },
-    contains: function(table, registry){
-        return this.getPositionById(table, registry) != -1;
+    contains: function(table, entry){
+        return this.find(table, {id: entry.id}).length != 0;
     },
     setString: function(table, str){
         localStorage.setItem(table, str);
@@ -41,34 +23,48 @@ var DatabaseUtils = {
     getString: function(table){
         return localStorage.getItem(table);
     },
-    save: function(table, registry){
-        var registries = this.getAll(table);
-
-        registries.push(registry);
-
-        localStorage.setItem(table, JSON.stringify(registries));
+    get: function(key){
+        return localStorage.getItem(key);
     },
-    update: function(table, registry){
+    set: function(key, value){
+        localStorage.setItem(key, value);
+    },
+    save: function(table, entry){
+        var entries = this.getAll(table);
 
-        var registries = this.getAll(table);
+        entries.push(entry);
 
-        var pos = this.getPositionById(table, registry.id);
+        this.setString(table, JSON.stringify(entries));
+    },
+    update: function(table, entry){
+
+        var array = this.getAll(table);
+
+        var pos = ArrayUtils.getPos(array, entry);
 
         if(pos != -1){
-            registries[pos] = registry
+            array[pos] = entry;
         }
 
-        localStorage.setItem(table, JSON.stringify(registries));
+        this.setString(table, JSON.stringify(array));
     },
-    remove: function(table, registry){
-        DatabaseUtils.removeById(table, registry.id);
-    },
-    saveOrUpdate: function(table, registry){
+    remove: function(table, entries){
 
-        if(this.contains(table, registry.id)){
-            this.update(table, registry);
+        entries = ArrayUtils.isArray(entries)? entries : [entries];
+
+        var array = this.getAll(table);
+
+        for (var i = 0; i < entries.length; i++){
+            ArrayUtils.remove(array, entries[i]);
+        }
+
+        this.setString(table, JSON.stringify(array));
+    },
+    saveOrUpdate: function(table, entry){
+        if(this.contains(table, entry)){
+            this.update(table, entry);
         }else{
-            this.save(table, registry);
+            this.save(table, entry);
         }
     }
 }

@@ -1,23 +1,6 @@
 <div class="pages" id="page-categories">
-
-    <div class="toolbar ">
-        <div class="row">
-            <div class="col-xs-6">
-                <p class="total" id="category-total"></p>
-            </div>
-            <div class=" col-xs-6">
-                <button class="btn pull-right btn-default" id="new-category">New Category</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Name</div>
-        <div class="list-group" id="list-group-categories">
-
-        </div>
-    </div>
+    <div id="toolbar"></div>
+    <div id="listview"></div>
 </div>
 
 <!-- Modal -->
@@ -38,12 +21,12 @@
                         <label for="category-name">Name</label>
                         <input type="text" class="form-control" autocomplete="off" data-validation="required" id="category-name">
                     </div>
-                    <p><strong>Color</strong></p>
+                    <label for="category-color">Color</label><br>
                     <div id="category-color-options" class="btn-group" data-toggle="buttons"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="btn-save-category">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default" id="btn-cancel" data-dismiss="modal">Cancel</button>
                 </div>
             </form>
         </div>

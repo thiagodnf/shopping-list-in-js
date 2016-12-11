@@ -10,41 +10,18 @@ body{
 	opacity: 1;
 }
 
-#actionbar .navbar-collapse.collapse{
-  display: block !important;
-}
-
-#actionbar .navbar-nav>li, .navbar-nav{
-  float: left !important;
-}
-
-#actionbar .navbar-nav.navbar-right:last-child{
-  margin-right: -15px !important;
-}
-
-#actionbar .navbar-right{
-  float: right !important;
-}
-
 .btn-transparent {
-  background-color: transparent;
-  border-color: #ccc;
+    background-color: transparent;
+    border-color: #ccc;
 }
 
-.navbar-form{
-    padding-left: 0px;
+#toolbar{
+    margin-bottom: 8px;
 }
 
-.toolbar{
-
-    padding-bottom: 15px;
+#toolbar p{
+    padding: 6px 12px;
 }
-
-.toolbar .total{
-    margin-top: 7px;
-    margin-bottom: 0px;
-}
-
 
 #actionbar{
     top: 0;
@@ -55,9 +32,10 @@ body{
     z-index: 1031;
     width: 100%;
     padding-top: 8px;
-    background-color: #f8f8f8;
+    background-color: #f5f5f5;
     border-color: #e7e7e7;
     min-height: 50px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .actionbar-right-buttons button{
@@ -75,7 +53,9 @@ body{
 
 
 
-
+.navbar-right{
+    margin-right: 0px;
+}
 
 
 #custom-bootstrap-menu.navbar-default .navbar-brand {
@@ -86,6 +66,7 @@ body{
     background-color: rgba(55, 71, 79, 1);
     border-width: 0px;
     border-radius: 0px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color: rgba(152, 160, 164, 1);
