@@ -44,7 +44,7 @@ var LoadModule = {
     	});
 
         if(NavBar.isMenuCollapsed()){
-            $(".navbar-brand").text(this.names[module]);
+            $(".navbar-brand").text(this.names[module].toLocaleString());
         }
 
         location.hash = module;
