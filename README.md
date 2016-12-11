@@ -3,13 +3,13 @@
 This application is a useful and simple shopping list.
 
 ## Screenshots (Desktop)
-![alt tag](https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-desktop.png)
+<img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-desktop.png" alt="Drawing" height="300"/>
 
 ## Screenshots (Android)
-![alt tag](https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-android.png)
+<img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-android.png" alt="Drawing" height="300"/>
 
 ## Screenshots (iPad)
-![alt tag](https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-ipad.png)
+<img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-ipad.png" alt="Drawing" height="300"/>
 
 ## Supported Languages
 - English
