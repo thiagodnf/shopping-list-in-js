@@ -8,6 +8,7 @@ This application is a useful and simple shopping list.
 - Organize with Categories - Separate the products into categories
 - Product Management - Define price, quantity and units for the products
 - Offline Support - Create and manage your shopping list with no internet
+- Import/Export your data in a json file
 
 ## Supported Languages
 - English
