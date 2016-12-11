@@ -4,12 +4,13 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#settings-tab-general" aria-controls="home" role="tab" data-toggle="tab">General</a></li>
+        <li role="presentation"><a href="#settings-tab-advanced" aria-controls="advanced" role="tab" data-toggle="tab">Advanced</a></li>
     </ul>
 
     <form id="form-settings">
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="general">
+            <div role="tabpanel" class="tab-pane fade in active" id="settings-tab-general">
                 <br>
                 <div class="form-group">
                     <label for="settings-language">Language</label>
@@ -19,11 +20,46 @@
                     </select>
                 </div>
             </div>
+            <div role="tabpanel" class="tab-pane fade in" id="settings-tab-advanced">
+                <br>
+                <div class="form-group">
+                    <strong><p for="settings-data">Data</p></strong>
+                    <button type="button" data-toggle="modal" data-target="#modal-import" class="btn btn-default" id="btn-settings-import">Import</button>
+                    <button type="button" class="btn btn-default" id="btn-settings-export">Export</button>
+                </div>
+                <div class="form-group">
+                    <strong><p for="settings-reset">Reset Settings</p></strong>
+                    <p for="settings-reset-warning">Warning! This cannot be undone!</p>
+                    <button type="button" class="btn btn-default" id="btn-settings-clear-all">Clear</button>
+                </div>
+            </div>
         </div>
+        <hr>
         <button type="submit" class="btn btn-primary" id="btn-settings-save">Save</button>
     </form>
 </div>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-import" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="form-import">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Import</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="file" data-validation="required" id="files" name="files[]" />
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btn-import">Import</button>
+                    <button type="button" class="btn btn-default" id="btn-cancel" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" charset="utf8">
