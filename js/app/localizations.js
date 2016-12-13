@@ -49,6 +49,7 @@ String.toLocaleString({
         "Warning! This cannot be undone!": "Warning! This cannot be undone!",
         "Currency Symbol": "Currency Symbol",
         "Spanish": "Spanish",
+        "About": "About",
 	},
 	"pt-BR": {
         "Pending": "Pendentes",
@@ -100,6 +101,7 @@ String.toLocaleString({
         "Warning! This cannot be undone!": "Atenção! Isto não pode ser desfeito!",
         "Currency Symbol": "Moeda",
         "Spanish": "Espanhol",
+        "About": "Sobre",
 	},
     "pt-ES": {
         "Pending": "Pendiente",
@@ -151,5 +153,6 @@ String.toLocaleString({
         "Warning! This cannot be undone!": "¡Atención! Esto no se puede deshacer!",
         "Currency Symbol": "Moneda",
         "Spanish": "Español",
+        "About": "Sobre",
 	}
 });

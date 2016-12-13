@@ -110,6 +110,7 @@ var SettingsModule  = {
     reload: function(){
         $("a[href='#settings-tab-general']").text("General".toLocaleString());
         $("a[href='#settings-tab-advanced']").text("Advanced".toLocaleString());
+        $("a[href='#settings-tab-about']").text("About".toLocaleString());
 
         $("label[for='settings-language']").text("Language".toLocaleString());
         $("label[for='settings-currency-symbol']").text("Currency Symbol".toLocaleString());
@@ -124,9 +125,5 @@ var SettingsModule  = {
         $("#btn-import").text("Import".toLocaleString());
         $("#btn-cancel").text("Cancel".toLocaleString());
         $("#modal-import .modal-title").text("Import".toLocaleString());
-
-        $("option[value='en-US']").text("English".toLocaleString());
-        $("option[value='pt-BR']").text("Portuguese".toLocaleString());
-        $("option[value='pt-ES']").text("Spanish".toLocaleString());
     }
 }

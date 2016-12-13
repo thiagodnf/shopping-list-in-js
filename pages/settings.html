@@ -5,6 +5,7 @@
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#settings-tab-general" aria-controls="home" role="tab" data-toggle="tab">General</a></li>
         <li role="presentation"><a href="#settings-tab-advanced" aria-controls="advanced" role="tab" data-toggle="tab">Advanced</a></li>
+        <li role="presentation"><a href="#settings-tab-about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
     </ul>
 
     <form id="form-settings">
@@ -16,8 +17,8 @@
                     <label for="settings-language">Language</label>
                     <select class="form-control select" id="settings-language" data-validation="required">
                         <option value="en-US">English</option>
-                        <option value="pt-BR">Portuguese</option>
-                        <option value="pt-ES">Spanish</option>
+                        <option value="pt-BR">Português</option>
+                        <option value="pt-ES">Español</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -29,6 +30,7 @@
                         <option value="€">€</option>
                     </select>
                 </div>
+                <hr>
                 <button type="submit" class="btn btn-primary" id="btn-settings-save">Save</button>
             </div>
             <div role="tabpanel" class="tab-pane fade in" id="settings-tab-advanced">
@@ -44,8 +46,15 @@
                     <button type="button" class="btn btn-default" id="btn-settings-clear-all">Clear</button>
                 </div>
             </div>
+            <div role="tabpanel" class="tab-pane fade in" id="settings-tab-about">
+
+                <h3>Shopping List</h3>
+                <p id="developer"><small>Developed by <a href="http://github.com/thiagodnf/" target="-_blank">Thiago Nascimento</a></small></p>
+                <p id="version"><small>Version: 1.0.0</small></p>
+                <p><em>If you encounter any problems, please use the <a href="https://github.com/thiagodnf/shopping-list/issues" target="-_blank">GitHub Issue Tracker</a>. <br>Did you  like this project? Let me know.</em></p>
+            </div>
         </div>
-        <hr>
+
 
     </form>
 </div>
