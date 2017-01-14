@@ -78,7 +78,7 @@ var ListView = {
         $.each(categories, function(index, category){
 
             var amount = ArrayUtils.find(items, {categoryId: category.id}).length;
-            var showEmptyCategories = DatabaseUtils.get("show-empty-categories");
+            var showEmptyCategories = DatabaseUtils.get("show-empty-categories") || "yes";
 
             if(showEmptyCategories == "yes" || (showEmptyCategories == "no" && amount > 0)){
                 $("#listview").append(that.getPanel(category.id, category.name, category.color));
