@@ -50,6 +50,9 @@ String.toLocaleString({
         "Currency Symbol": "Currency Symbol",
         "Spanish": "Spanish",
         "About": "About",
+		"Yes": "Yes",
+		"No": "No",
+		"Show Empty Categories": "Show Empty Categories",
 	},
 	"pt-BR": {
         "Pending": "Pendentes",
@@ -102,6 +105,9 @@ String.toLocaleString({
         "Currency Symbol": "Moeda",
         "Spanish": "Espanhol",
         "About": "Sobre",
+		"Yes": "Sim",
+		"No": "Não",
+        "Show Empty Categories": "Mostrar Categorias Vazias",
 	},
     "pt-ES": {
         "Pending": "Pendiente",
@@ -154,5 +160,8 @@ String.toLocaleString({
         "Currency Symbol": "Moneda",
         "Spanish": "Español",
         "About": "Sobre",
+		"Yes": "Sí",
+		"No": "No",
+        "Show Empty Categories": "Mostrar categorías vacías",
 	}
 });

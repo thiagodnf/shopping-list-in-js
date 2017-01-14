@@ -76,7 +76,13 @@ var ListView = {
         $("#listview").html(this.getPanel(-1, name? name:this.defaultName.toLocaleString(), "#f5f5f5"));
 
         $.each(categories, function(index, category){
-            $("#listview").append(that.getPanel(category.id, category.name, category.color));
+
+            var amount = ArrayUtils.find(items, {categoryId: category.id}).length;
+            var showEmptyCategories = DatabaseUtils.get("show-empty-categories");
+
+            if(showEmptyCategories == "yes" || (showEmptyCategories == "no" && amount > 0)){
+                $("#listview").append(that.getPanel(category.id, category.name, category.color));
+            }
         });
 
         $.each(items, function(index, item){

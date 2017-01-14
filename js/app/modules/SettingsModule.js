@@ -4,6 +4,7 @@ var SettingsModule  = {
 
         $("#settings-language").val(DatabaseUtils.get("language") || "en-US");
         $("#settings-currency-symbol").val(DatabaseUtils.get("currency-symbol") || "$");
+        $("#show-empty-categories").val(DatabaseUtils.get("show-empty-categories") || "yes");
 
         var lang = (DatabaseUtils.get("language") || "en-US").substring(0, 2);
 
@@ -11,6 +12,7 @@ var SettingsModule  = {
 
             DatabaseUtils.set("language", $("#settings-language").val());
             DatabaseUtils.set("currency-symbol", $("#settings-currency-symbol").val());
+            DatabaseUtils.set("show-empty-categories", $("#show-empty-categories").val());
 
             location.reload();
 
@@ -94,7 +96,7 @@ var SettingsModule  = {
         }
 
         var blob = file.slice(0, file.size);
-        reader.readAsBinaryString(blob);
+        reader.readAsText(blob, "UTF-8");
     },
     importJSONString: function(str){
         var obj = JSON.parse(str);
@@ -114,6 +116,7 @@ var SettingsModule  = {
 
         $("label[for='settings-language']").text("Language".toLocaleString());
         $("label[for='settings-currency-symbol']").text("Currency Symbol".toLocaleString());
+        $("label[for='show-empty-categories']").text("Show Empty Categories".toLocaleString());
         $("p[for='settings-data']").text("Data".toLocaleString());
         $("p[for='settings-reset']").text("Reset Settings".toLocaleString());
         $("p[for='settings-reset-warning']").text("Warning! This cannot be undone!".toLocaleString());
@@ -125,5 +128,8 @@ var SettingsModule  = {
         $("#btn-import").text("Import".toLocaleString());
         $("#btn-cancel").text("Cancel".toLocaleString());
         $("#modal-import .modal-title").text("Import".toLocaleString());
+
+        $("option[value='yes']").text("Yes".toLocaleString());
+        $("option[value='no']").text("No".toLocaleString());
     }
 }

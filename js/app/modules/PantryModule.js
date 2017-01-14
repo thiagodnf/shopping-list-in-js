@@ -63,6 +63,9 @@ var PantryModule = {
         var that = this;
 
         var products = DatabaseUtils.getAll("products");
+
+        products = ArrayUtils.find(products, {pending: 0});
+
         var categories = DatabaseUtils.getAll("categories");
 
         var numberOfItems = 0;

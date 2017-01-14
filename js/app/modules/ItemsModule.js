@@ -9,6 +9,9 @@ var ItemsModule = {
 
         var categories = DatabaseUtils.getAll("categories");
         var products = DatabaseUtils.getAll("products");
+
+        products = ArrayUtils.find(products, {pending: 1});
+
         var numberOfItems = 0;
         var totalValue = 0;
 
