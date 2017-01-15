@@ -1,5 +1,5 @@
 CACHE MANIFEST 
-# Timestamp 1484481073294
+# Timestamp 1484485459202
 
 index.html 
 css/bootstrap.min.css 
@@ -37,10 +37,10 @@ img/favicon/apple-icon-60x60.png
 img/favicon/apple-icon-72x72.png 
 img/favicon/apple-icon-76x76.png 
 img/favicon/apple-icon-precomposed.png 
-img/favicon/apple-icon.png 
 img/favicon/browserconfig.xml 
-img/favicon/favicon-32x32.png 
+img/favicon/apple-icon.png 
 img/favicon/favicon-16x16.png 
+img/favicon/favicon-32x32.png 
 img/favicon/favicon-96x96.png 
 img/favicon/favicon.ico 
 img/favicon/manifest.json 
@@ -51,8 +51,8 @@ img/favicon/ms-icon-70x70.png
 js/script.js 
 js/app/localizations.js 
 js/app/components/ActionBar.js 
-js/app/components/ListView.js 
 js/app/components/NavBar.js 
+js/app/components/ListView.js 
 js/app/components/ToolBar.js 
 js/app/modules/CategoriesModule.js 
 js/app/modules/ItemsModule.js 
@@ -66,8 +66,8 @@ js/app/utils/SnackbarUtils.js
 js/app/utils/UUIDUtils.js 
 js/vendor/bootstrap.min.js 
 js/vendor/jquery.form-validator.min.js 
-js/vendor/jquery.min.js 
 js/vendor/l10n.min.js 
+js/vendor/jquery.min.js 
 js/vendor/lokijs.min.js 
 js/vendor/snackbar.min.js 
 js/vendor/lang/pt.js 
