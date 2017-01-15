@@ -1,0 +1,27 @@
+{
+	"name": "shopping-list",
+	"version": "1.0.0",
+	"description": "This application is a useful and simple shopping list",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+        "release": "node build.js --release",
+        "build": "node build.js"
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"files": [
+		"app.js"
+	],
+	"author": "Thiago Nascimento",
+	"license": "MIT",
+	"homepage": "https://github.com/thiagodnf/shopping-list",
+	"dependencies": {
+		"serve-static": "",
+		"connect": "",
+		"network":"",
+        "appcache-manifest":"",
+        "recursive-readdir":""
+  	}
+}

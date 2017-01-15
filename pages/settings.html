@@ -1,0 +1,100 @@
+<div class="pages" id="page-settings">
+
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#settings-tab-general" aria-controls="home" role="tab" data-toggle="tab">General</a></li>
+        <li role="presentation"><a href="#settings-tab-advanced" aria-controls="advanced" role="tab" data-toggle="tab">Advanced</a></li>
+        <li role="presentation"><a href="#settings-tab-about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+    </ul>
+
+    <form id="form-settings">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="settings-tab-general">
+                <br>
+                <div class="form-group">
+                    <label for="settings-language">Language</label>
+                    <select class="form-control select" id="settings-language" data-validation="required">
+                        <option value="en-US">English</option>
+                        <option value="pt-BR">Português</option>
+                        <option value="pt-ES">Español</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="settings-currency-symbol">Currency Symbol</label>
+                    <select class="form-control select" id="settings-currency-symbol" data-validation="required">
+                        <option value="$">$</option>
+                        <option value="R$">R$</option>
+                        <option value="£">£</option>
+                        <option value="€">€</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="show-empty-categories">Show Empty Categories</label>
+                    <select class="form-control select" id="show-empty-categories" data-validation="required">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary" id="btn-settings-save">Save</button>
+            </div>
+            <div role="tabpanel" class="tab-pane fade in" id="settings-tab-advanced">
+                <br>
+                <div class="form-group">
+                    <strong><p for="settings-data">Data</p></strong>
+                    <button type="button" data-toggle="modal" data-target="#modal-import" class="btn btn-default" id="btn-settings-import">Import</button>
+                    <button type="button" class="btn btn-default" id="btn-settings-export">Export</button>
+                </div>
+                <div class="form-group">
+                    <strong><p for="settings-reset">Reset Settings</p></strong>
+                    <p for="settings-reset-warning">Warning! This cannot be undone!</p>
+                    <button type="button" class="btn btn-default" id="btn-settings-clear-all">Clear</button>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade in" id="settings-tab-about">
+                <br>
+                <img src="img/favicon/android-icon-72x72.png" alt="logo"/>
+                <h3>Shopping List</h3>
+                <p>This application is a useful and simple shopping list.</p>
+                <p id="developer"><strong>Developed by:</strong></p>
+                <p><a href="http://github.com/thiagodnf/" target="-_blank">Thiago Nascimento</a></p>
+                <p id="version"><strong>Version:</strong></p>
+                <p id="version-number">1.0.0</p>
+                <br>
+                <p><em>If you encounter any problems, please use the <a href="https://github.com/thiagodnf/shopping-list/issues" target="-_blank">GitHub Issue Tracker</a>.
+                Did you  like this project? Let me know.</em></p>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-import" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="form-import">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Import</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="file" data-validation="required" id="files" name="files[]" />
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btn-import">Import</button>
+                    <button type="button" class="btn btn-default" id="btn-cancel" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf8">
+    SettingsModule.init();
+</script>
