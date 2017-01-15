@@ -95,7 +95,7 @@ var PantryModule = {
         });
 
         ToolBar.on('content.right', function(){
-            return '<button class="btn pull-right btn-default" id="toolbar-btn-new">New Product</button>';
+            return '<button class="btn pull-right btn-default btn-purple" id="toolbar-btn-new">New Product</button>';
         });
 
         ToolBar.on('btn.new.onclick', function(){

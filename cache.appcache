@@ -1,11 +1,11 @@
 CACHE MANIFEST 
-# Timestamp 1484435562362
+# Timestamp 1484481073294
 
 index.html 
 css/bootstrap.min.css 
 css/material.css 
-css/snackbar.min.css 
 css/ripples.min.css 
+css/snackbar.min.css 
 css/style.css 
 fonts/glyphicons-halflings-regular.eot 
 fonts/glyphicons-halflings-regular.svg 
@@ -21,16 +21,16 @@ img/logo.xcf
 img/screenshot-android.png 
 img/screenshot-desktop.png 
 img/screenshot-ipad.png 
-img/favicon/android-icon-192x192.png 
 img/favicon/android-icon-144x144.png 
+img/favicon/android-icon-192x192.png 
 img/favicon/android-icon-36x36.png 
 img/favicon/android-icon-48x48.png 
 img/favicon/android-icon-72x72.png 
 img/favicon/android-icon-96x96.png 
 img/favicon/apple-icon-114x114.png 
 img/favicon/apple-icon-120x120.png 
-img/favicon/apple-icon-152x152.png 
 img/favicon/apple-icon-144x144.png 
+img/favicon/apple-icon-152x152.png 
 img/favicon/apple-icon-180x180.png 
 img/favicon/apple-icon-57x57.png 
 img/favicon/apple-icon-60x60.png 
@@ -43,8 +43,8 @@ img/favicon/favicon-32x32.png
 img/favicon/favicon-16x16.png 
 img/favicon/favicon-96x96.png 
 img/favicon/favicon.ico 
-img/favicon/ms-icon-144x144.png 
 img/favicon/manifest.json 
+img/favicon/ms-icon-144x144.png 
 img/favicon/ms-icon-150x150.png 
 img/favicon/ms-icon-310x310.png 
 img/favicon/ms-icon-70x70.png 
@@ -68,8 +68,8 @@ js/vendor/bootstrap.min.js
 js/vendor/jquery.form-validator.min.js 
 js/vendor/jquery.min.js 
 js/vendor/l10n.min.js 
-js/vendor/snackbar.min.js 
 js/vendor/lokijs.min.js 
+js/vendor/snackbar.min.js 
 js/vendor/lang/pt.js 
 
 NETWORK: 
