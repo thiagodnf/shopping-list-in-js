@@ -1,7 +1,7 @@
 var connect = require('connect');
     serveStatic = require('serve-static');
     network = require('network');
-	port = process.env.PORT || 8080;
+	port = process.env.PORT || 3000;
     fs = require('fs');
     recursive = require('recursive-readdir');
 

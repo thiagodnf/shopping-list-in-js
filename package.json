@@ -1,22 +1,19 @@
 {
-	"name": "shopping-list",
-	"version": "1.0.0",
-	"description": "This application is a useful and simple shopping list",
+	"name": "shopping-list-in-js",
+	"version": "0.0.1",
+	"description": "Useful and simple shopping list in javascript with local storage",
 	"main": "app.js",
 	"scripts": {
 		"start": "node app.js",
         "release": "node build.js --release",
         "build": "node build.js"
 	},
-	"engines": {
-		"node": ">=0.10.0"
-	},
 	"files": [
 		"app.js"
 	],
-	"author": "Thiago Nascimento",
+	"author": "Thiago Ferreira",
 	"license": "MIT",
-	"homepage": "https://github.com/thiagodnf/shopping-list",
+	"homepage": "https://github.com/thiagodnf/shopping-list-in-js",
 	"dependencies": {
 		"serve-static": "",
 		"connect": "",

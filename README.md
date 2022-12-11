@@ -1,8 +1,10 @@
 ![alt tag](https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/favicon/android-icon-72x72.png)
-# Shopping List
-This application is a useful and simple shopping list.
+
+# Shopping List in JS
+Useful and simple shopping list in javascript with local storage
 
 ## Features
+
 - HTML5 Support - HTML5 is the latest evolution of the standard that defines HTML
 - Plataform-independent - Designed to run on the World Wide Web
 - Organize with Categories - Separate the products into categories
@@ -12,6 +14,7 @@ This application is a useful and simple shopping list.
 - Multi-Languages
 
 ## Supported Languages
+
 - English
 - Portuguese
 - Spanish

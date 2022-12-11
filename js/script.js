@@ -40,8 +40,8 @@ $(function(){
         alert('The File APIs are not fully supported in this browser.');
     }
 
-    $(".navbar-brand").text("Shopping List".toLocaleString());
-    document.title  = "Shopping List".toLocaleString();
+    $(".navbar-brand").text("Shopping List in JS".toLocaleString());
+    document.title  = "Shopping List in JS".toLocaleString();
 
     ActionBar.init();
 
