@@ -1,4 +1,4 @@
-![alt tag](https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/favicon/android-icon-72x72.png)
+![alt tag](https://user-images.githubusercontent.com/114015/206922404-f6751e76-6d68-410b-8f54-27b75f8bd438.png)
 
 # Shopping List in JS
 Useful and simple shopping list in javascript with local storage
@@ -20,13 +20,13 @@ Useful and simple shopping list in javascript with local storage
 - Spanish
 
 ## Screenshots (Desktop)
-<img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-desktop.png" alt="Drawing" height="300"/>
+<img class="screenshot" src="https://user-images.githubusercontent.com/114015/206922428-3ea4e035-caba-42f7-b007-cdd4de60204c.png"/>
 
 ## Screenshots (Android)
-<img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-android.png" alt="Drawing" height="300"/>
+<img src="https://user-images.githubusercontent.com/114015/206922423-42405be4-3ed1-4631-b11f-82cf3705de55.png" alt="Drawing" height="300"/>
 
 ## Screenshots (iPad)
-<img src="https://raw.githubusercontent.com/thiagodnf/shopping-list/master/img/screenshot-ipad.png" alt="Drawing" height="300"/>
+<img src="https://user-images.githubusercontent.com/114015/206922429-abb569d5-d9e3-4ae0-9adb-76f3816ea167.png" alt="Drawing" height="300"/>
 
 ## Contact
 
