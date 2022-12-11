@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": "node app.js",
         "release": "node build.js --release",
-        "build": "node build.js"
+        "build": "node build.js",
+        "update-dependencies": "ncu -u"
 	},
 	"files": [
 		"app.js"
@@ -15,10 +16,9 @@
 	"license": "MIT",
 	"homepage": "https://github.com/thiagodnf/shopping-list-in-js",
 	"dependencies": {
-		"serve-static": "",
-		"connect": "",
-		"network":"",
-        "appcache-manifest":"",
-        "recursive-readdir":""
+		"serve-static": "1.15.0",
+		"connect": "3.7.0",
+		"network":"0.6.1",
+        "recursive-readdir":"2.2.3"
   	}
 }
